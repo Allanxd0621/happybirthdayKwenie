@@ -1,0 +1,498 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Kwenieee🎂</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    overflow:hidden;
+    background:linear-gradient(135deg,#ffd6e7,#fff4d6);
+}
+
+.page{
+    width:100%;
+    height:100dvh;
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:2rem;
+    animation:fadeIn .8s ease;
+}
+
+.page.active{
+    display:flex;
+}
+
+h1{
+    font-size:2.2rem;
+    margin-bottom:1rem;
+}
+
+p{
+    max-width:320px;
+    line-height:1.7;
+    font-size:1.05rem;
+}
+
+button{
+    margin-top:2rem;
+    padding:14px 30px;
+    border:none;
+    border-radius:999px;
+    cursor:pointer;
+    font-size:1rem;
+    background:white;
+    box-shadow:0 4px 15px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+img{
+    width:220px;
+    height:220px;
+    object-fit:cover;
+    border-radius:20px;
+    margin-bottom:1rem;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.big{
+    font-size:3rem;
+    animation:bounce 1s infinite;
+}
+
+.heart{
+    position:fixed;
+    font-size:20px;
+    animation:floatUp linear forwards;
+    pointer-events:none;
+}
+
+.typewriter{
+    min-height:180px;
+    max-width:330px;
+    line-height:1.8;
+}
+
+.final{
+    background:#1f1f1f;
+    color:white;
+}
+
+.stars{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    z-index:0;
+}
+
+.final > *{
+    z-index:1;
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 2s infinite;
+}
+
+.crazyPhoto{
+    width:250px;
+    height:250px;
+    object-fit:cover;
+    border-radius:20px;
+    margin:20px 0;
+    animation:dance .5s infinite;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(0);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-120vh);
+        opacity:0;
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes bounce{
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+@keyframes twinkle{
+    50%{
+        opacity:.2;
+    }
+}
+
+@keyframes dance{
+
+    0%{
+        transform:rotate(-15deg) scale(1);
+    }
+
+    25%{
+        transform:rotate(15deg) scale(1.15);
+    }
+
+    50%{
+        transform:rotate(-15deg) scale(.9);
+    }
+
+    75%{
+        transform:rotate(15deg) scale(1.15);
+    }
+
+    100%{
+        transform:rotate(-15deg) scale(1);
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div id="hearts"></div>
+
+<div class="page active" id="page1">
+
+    <h1>Hi KWENNIE 👋</h1>
+
+    <p>
+      Happy 14th Birthdayyyy, you are still pretty much a baby but you are way smarter and matured thinker than most of my classmates no offense to them
+    </p>
+
+    <button onclick="nextPage(1)">
+       continue
+    </button>
+
+</div>
+
+<div class="page" id="page2">
+
+    <img src="foryou1.gif">
+
+    <p>
+        Wishing you a very happy day pero naay klase luoy 
+    </p>
+
+    <button onclick="nextPage(2)">
+        Continue 
+    </button>
+
+</div>
+
+<div class="page" id="page3">
+
+    <h1>naay mo kanta nimo</h1>
+
+    <p>
+     he is a very talented singer and pet of mine
+    </p>
+
+    <button id="songBtn" onclick="nextPage(3)">
+        continue!!!
+    </button>
+
+    <audio src="hbd.mp3" id="hbdmp3"></audio>
+
+</div>
+
+<div class="page" id="page4">
+
+    <div class="big">🎂</div>
+
+    <h1>HAPPY BIRTHDAY!</h1>
+
+    <p>
+      kantahan kang qoobee laterr
+    </p>
+
+    <button id="thanksBtn" onclick="nextPage(4)">
+        see who is singing
+    </button>
+
+    <audio src="th.mp3" id="thmp3"></audio>
+
+</div>
+
+<div class="page" id="page5">
+
+    <img src="EMO_127.gif">
+
+    <p>
+        I hope today brings you happiness,
+        good food,
+        laughter,
+        and wonderful memories.
+    </p>
+
+    <button onclick="startLetter()">
+        Read Letter ✨
+    </button>
+
+</div>
+
+<div class="page" id="page6">
+
+    <h1>💌</h1>
+
+    <div class="typewriter" id="letter"></div>
+
+    <button id="lastBtn"
+            style="display:none"
+            onclick="nextPage(6)">
+        One Last Thing
+    </button>
+
+</div>
+
+<div class="page final" id="page7">
+
+    <div class="stars" id="stars"></div>
+
+    <h1>🌙</h1>
+
+    <p>
+        No matter how many birthdays pass,
+        I hope you keep finding reasons
+        to smile at the little things.
+
+        <br><br>
+
+
+        <br><br>
+
+        You deserve a wonderful day.
+
+        <br><br>
+
+        💛
+    </p>
+
+    <small>
+        annoying kaayo ang minnion sig kanta right?
+    </small>
+
+    <button id="endBtn" onclick="nextPage(7)">
+        Secret Ending 👀
+    </button>
+
+    <audio src="myinstants.mp3" id="end"></audio>
+
+</div>
+
+<div class="page" id="page8">
+
+    <h1>HAPPY BIRTHDAYYYYY 🎉</h1>
+
+    <p>
+        SHESHHHHHHH
+    </p>
+
+    <img src="unhappy_emoticon.gif" class="crazyPhoto">
+    <img src="kwen2.jpeg" class="crazyPhoto">
+
+    <h2 id="counter">
+        Birthday Happiness Level: 0%
+    </h2>
+
+    <p>
+        Have an amazing birthday KWENIEE 🎂✨
+    </p>
+
+</div>
+
+<script>
+
+
+const bg = document.getElementById('bg');
+
+window.addEventListener('load' , function(){
+
+bg.play();
+
+});
+
+function nextPage(current){
+
+    document
+    .getElementById(`page${current}`)
+    .classList.remove("active");
+
+    document
+    .getElementById(`page${current+1}`)
+    .classList.add("active");
+
+    if(current === 7){
+
+        let count = 0;
+
+        const counter =
+        document.getElementById("counter");
+
+        setInterval(()=>{
+
+            count++;
+
+            counter.textContent =
+            `Birthday Happiness Level: ${count}%`;
+
+        },50);
+
+    }
+}
+
+function createHeart(){
+
+    const heart =
+    document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.innerHTML = "💖";
+
+    heart.style.left =
+    Math.random()*100 + "vw";
+
+    heart.style.bottom = "-30px";
+
+    heart.style.animationDuration =
+    (Math.random()*4+3) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },7000);
+}
+
+setInterval(createHeart,500);
+
+function startLetter(){
+
+    nextPage(5);
+
+    const message =
+`Happy birthday Kwennie You are very lucky to be this smart and talented please be polite and humble at all times because I know what we think na most of the people around us are idiots jokee pero yes please always be humble and you will surely turned out to be a fine elegant lady. I am excited on what you are going to be in the future, pursue your dreams and dont regret anything you do in life. I will always support you no matter what - kuya`;
+
+    let i = 0;
+
+    const letter =
+    document.getElementById("letter");
+
+    const interval =
+    setInterval(()=>{
+
+        letter.textContent += message[i];
+
+        i++;
+
+        if(i >= message.length){
+
+            clearInterval(interval);
+
+            document
+            .getElementById("lastBtn")
+            .style.display = "block";
+        }
+
+    },40);
+}
+
+for(let i=0;i<50;i++){
+
+    const star =
+    document.createElement("div");
+
+    star.classList.add("star");
+
+    star.style.left =
+    Math.random()*100 + "vw";
+
+    star.style.top =
+    Math.random()*100 + "vh";
+
+    star.style.animationDelay =
+    Math.random()*2 + "s";
+
+    document
+    .getElementById("stars")
+    .appendChild(star);
+}
+
+const songBtn = document.getElementById('songBtn');
+const hbdmp3 = document.getElementById('hbdmp3');
+
+songBtn.addEventListener('click' , function(){
+
+hbdmp3.currentTime = 0;
+hbdmp3.play();
+hbdmp3.loop = true;
+
+
+
+});
+
+const thanksBtn = document.getElementById('thanksBtn');
+const thmp3 = document.getElementById('thmp3');
+
+thanksBtn.addEventListener('click' , function(){
+
+hbdmp3.pause();
+thmp3.play();
+thmp3.currentTime = 0;
+thmp3.loop = true;
+
+});
+
+const endBtn = document.getElementById('endBtn');
+const end = document.getElementById('end');
+
+endBtn.addEventListener('click' ,function (){
+
+thmp3.pause();
+
+end.play();
+end.loop = true;
+
+});
+
+</script>
+
+</body>
+</html>
+```
